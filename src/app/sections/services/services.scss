@@ -43,9 +43,22 @@
   color: var(--color-primary);
 }
 
-.service-card__icon svg {
-  width: 26px;
-  height: 26px;
+.service-card__gif {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+}
+
+.service-card__gif svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.service-card--media {
+  padding-top: 20px;
 }
 
 .service-card h3 {

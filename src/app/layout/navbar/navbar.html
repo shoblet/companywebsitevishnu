@@ -5,8 +5,42 @@
     </a>
 
     <nav class="navbar__links" [class.open]="isMenuOpen()">
-      @for (link of links; track link.fragment) {
-        <a [href]="'#' + link.fragment" (click)="closeMenu()">{{ link.label }}</a>
+      @for (link of links; track link.label) {
+        @if (link.children; as children) {
+          <div
+            class="navbar__item navbar__item--has-children"
+            [class.open]="isDropdownOpen(link.label)"
+            (click)="$event.stopPropagation()"
+          >
+            <button
+              type="button"
+              class="navbar__trigger"
+              [attr.aria-expanded]="isDropdownOpen(link.label)"
+              aria-haspopup="true"
+              (click)="toggleDropdown(link.label, $event)"
+            >
+              {{ link.label }}
+              <svg class="navbar__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="m6 9 6 6 6-6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="navbar__dropdown">
+              @for (child of children; track child.fragment) {
+                <a [href]="'#' + child.fragment" (click)="closeMenu()">{{ child.label }}</a>
+              }
+            </div>
+          </div>
+        } @else {
+          <a class="navbar__link" [href]="'#' + link.fragment" (click)="closeMenu()">{{
+            link.label
+          }}</a>
+        }
       }
       <a href="#contact" class="navbar__cta btn btn-primary" (click)="closeMenu()"
         >Get in Touch</a

@@ -19,6 +19,55 @@
     />
   </head>
   <body>
+    <div id="app-splash" role="status" aria-live="polite" aria-label="Loading Arcbyte Technologies">
+      <img src="assets/logo.png" alt="Arcbyte Technologies" />
+    </div>
     <app-root></app-root>
+    <style>
+      #app-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: grid;
+        place-items: center;
+        background: #f4f7ff;
+        transition:
+          opacity 0.45s ease,
+          visibility 0.45s ease;
+      }
+
+      #app-splash img {
+        width: min(220px, 56vw);
+        height: auto;
+        animation: splash-pop 0.75s cubic-bezier(0.22, 1.25, 0.36, 1) both;
+      }
+
+      #app-splash.is-done {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      @keyframes splash-pop {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        70% {
+          transform: scale(1.08);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #app-splash img {
+          animation: none;
+        }
+      }
+    </style>
   </body>
 </html>

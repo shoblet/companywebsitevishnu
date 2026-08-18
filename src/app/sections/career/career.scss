@@ -1,0 +1,126 @@
+:host {
+  display: block;
+}
+
+.career {
+  padding-block: 0;
+  background: var(--color-bg-dark);
+}
+
+.career__frame {
+  position: relative;
+  overflow: hidden;
+  padding-block: 96px;
+}
+
+.career__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.career__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6, 13, 43, 0.72) 0%, rgba(10, 26, 77, 0.62) 100%),
+    linear-gradient(90deg, rgba(6, 13, 43, 0.28), transparent 45%);
+}
+
+.career__content {
+  position: relative;
+  z-index: 1;
+}
+
+.career .section-head h2,
+.career .section-head p {
+  color: #fff;
+}
+
+.career .section-head p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.career .eyebrow {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--color-accent);
+}
+
+.career__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.job-card {
+  padding: 32px 28px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.96);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.job-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.job-card__meta span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+
+.job-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.job-card p {
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+@media (max-width: 980px) {
+  .career__frame {
+    padding-block: 64px;
+  }
+
+  .career__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .career__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .career__video {
+    display: none;
+  }
+}

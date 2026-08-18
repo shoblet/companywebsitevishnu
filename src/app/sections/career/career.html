@@ -1,0 +1,33 @@
+<section id="career" class="section career">
+  <div class="career__frame">
+    <video class="career__video" autoplay muted loop playsinline>
+      <source src="assets/career-team.mp4" type="video/mp4" />
+    </video>
+    <div class="career__overlay"></div>
+
+    <div class="container career__content">
+      <div class="section-head center">
+        <span class="eyebrow">Join the Team</span>
+        <h2>Explore our current openings</h2>
+        <p>
+          We're looking for people who care about craft, communication and shipping
+          software that lasts. If that sounds like you, we'd like to hear from you.
+        </p>
+      </div>
+
+      <div class="career__grid">
+        @for (job of openings; track job.title) {
+          <article class="job-card">
+            <div class="job-card__meta">
+              <span>{{ job.type }}</span>
+              <span>{{ job.location }}</span>
+            </div>
+            <h3>{{ job.title }}</h3>
+            <p>{{ job.description }}</p>
+            <a href="#contact" class="btn btn-outline">Apply now</a>
+          </article>
+        }
+      </div>
+    </div>
+  </div>
+</section>

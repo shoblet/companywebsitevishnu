@@ -1,8 +1,14 @@
 import { Component, HostListener, signal } from '@angular/core';
 
-interface NavLink {
+interface NavChild {
   label: string;
   fragment: string;
+}
+
+interface NavItem {
+  label: string;
+  fragment?: string;
+  children?: NavChild[];
 }
 
 @Component({
@@ -13,11 +19,19 @@ interface NavLink {
 export class Navbar {
   protected readonly isScrolled = signal(false);
   protected readonly isMenuOpen = signal(false);
+  protected readonly openDropdown = signal<string | null>(null);
 
-  protected readonly links: NavLink[] = [
+  protected readonly links: NavItem[] = [
     { label: 'Home', fragment: 'home' },
     { label: 'Services', fragment: 'services' },
-    { label: 'About', fragment: 'about' },
+    {
+      label: 'Who We Are',
+      children: [
+        { label: 'About Us', fragment: 'about' },
+        { label: 'Meet the Team', fragment: 'team' },
+        { label: 'Career', fragment: 'career' },
+      ],
+    },
     { label: 'Why Us', fragment: 'why-us' },
     { label: 'Technologies', fragment: 'technologies' },
     { label: 'Contact', fragment: 'contact' },
@@ -28,11 +42,27 @@ export class Navbar {
     this.isScrolled.set(window.scrollY > 12);
   }
 
+  @HostListener('document:click')
+  onDocumentClick(): void {
+    this.openDropdown.set(null);
+  }
+
   toggleMenu(): void {
     this.isMenuOpen.update((open) => !open);
+    this.openDropdown.set(null);
   }
 
   closeMenu(): void {
     this.isMenuOpen.set(false);
+    this.openDropdown.set(null);
+  }
+
+  toggleDropdown(label: string, event: Event): void {
+    event.stopPropagation();
+    this.openDropdown.update((current) => (current === label ? null : label));
+  }
+
+  isDropdownOpen(label: string): boolean {
+    return this.openDropdown() === label;
   }
 }

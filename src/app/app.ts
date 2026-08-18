@@ -5,13 +5,15 @@ import { Footer } from './layout/footer/footer';
 import { Hero } from './sections/hero/hero';
 import { Services } from './sections/services/services';
 import { About } from './sections/about/about';
+import { Team } from './sections/team/team';
 import { WhyUs } from './sections/why-us/why-us';
 import { Technologies } from './sections/technologies/technologies';
+import { Career } from './sections/career/career';
 import { Contact } from './sections/contact/contact';
 
 @Component({
   selector: 'app-root',
-  imports: [Navbar, Hero, Services, About, WhyUs, Technologies, Contact, Footer],
+  imports: [Navbar, Hero, Services, About, Team, WhyUs, Technologies, Career, Contact, Footer],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

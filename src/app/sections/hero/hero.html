@@ -1,6 +1,8 @@
 <section id="home" class="hero">
+  <canvas #particles class="hero__particles" aria-hidden="true"></canvas>
   <div class="hero__glow hero__glow--one"></div>
   <div class="hero__glow hero__glow--two"></div>
+  <div class="hero__glow hero__glow--three"></div>
 
   <div class="container hero__inner">
     <div class="hero__content">
@@ -18,7 +20,17 @@
       </p>
 
       <div class="hero__actions">
-        <a href="#contact" class="btn btn-primary">Start Your Project</a>
+        <a
+          #cta
+          href="#contact"
+          class="btn btn-primary hero__cta"
+          (pointermove)="onCtaMove($event)"
+          (pointerenter)="onCtaEnter()"
+          (pointerleave)="onCtaLeave()"
+        >
+          <canvas #trail class="hero__cta-trail" aria-hidden="true"></canvas>
+          <span>Start Your Project</span>
+        </a>
         <a href="#services" class="btn btn-outline">Explore Services</a>
       </div>
 
@@ -33,24 +45,13 @@
     </div>
 
     <div class="hero__visual">
-      <div class="hero__card hero__card--main">
-        <img src="assets/logo.png" alt="Arcbyte Technologies" />
+      <div class="hero__visual-scene">
+        <img
+          class="hero__visual-image"
+          src="assets/hero-visual.png"
+          alt="Arcbyte services: HelpDesk, Dedicated Techs, SOC Services, Web Services, NOC Services and Professional Services"
+        />
       </div>
-      <div class="hero__card hero__card--float hero__card--one">
-        <span class="dot"></span>
-        <div>
-          <strong>Agile Delivery</strong>
-          <p>Sprint-based execution</p>
-        </div>
-      </div>
-      <div class="hero__card hero__card--float hero__card--two">
-        <span class="dot dot--accent"></span>
-        <div>
-          <strong>Cloud Native</strong>
-          <p>Built to scale on AWS/Azure</p>
-        </div>
-      </div>
-      <div class="hero__orbit"></div>
     </div>
   </div>
 </section>

@@ -17,7 +17,9 @@ export class Footer {
     {
       title: 'Company',
       links: [
-        { label: 'About', href: '#about' },
+        { label: 'About Us', href: '#about' },
+        { label: 'Meet the Team', href: '#team' },
+        { label: 'Career', href: '#career' },
         { label: 'Why Us', href: '#why-us' },
         { label: 'Contact', href: '#contact' },
       ],
@@ -28,6 +30,7 @@ export class Footer {
         { label: 'Web Development', href: '#services' },
         { label: 'Mobile Apps', href: '#services' },
         { label: 'Cloud & DevOps', href: '#services' },
+        { label: 'AI & Automation', href: '#services' },
       ],
     },
   ];
