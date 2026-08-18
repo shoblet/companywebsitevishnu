@@ -1,0 +1,42 @@
+<section id="about" class="section about">
+  <div class="container about__inner">
+    <div class="about__visual">
+      <div class="about__frame">
+        <img src="assets/logo.png" alt="Arcbyte Technologies team" />
+      </div>
+      <div class="about__badge">
+        <strong>8+</strong>
+        <span>Years building software</span>
+      </div>
+    </div>
+
+    <div class="about__content">
+      <span class="eyebrow">About Arcbyte</span>
+      <h2>A software partner invested in your long-term success</h2>
+      <p class="about__lead">
+        Arcbyte Technologies is a software development company helping founders and
+        enterprises turn ideas into dependable products. We combine deep technical
+        expertise with a genuine understanding of business goals to ship software that
+        performs &mdash; and keeps performing.
+      </p>
+
+      <ul class="about__points">
+        @for (point of points; track point.title) {
+          <li>
+            <span class="about__check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m5 13 4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <div>
+              <strong>{{ point.title }}</strong>
+              <p>{{ point.description }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+
+      <a href="#contact" class="btn btn-primary">Work With Us</a>
+    </div>
+  </div>
+</section>

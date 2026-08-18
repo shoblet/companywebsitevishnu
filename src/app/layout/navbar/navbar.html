@@ -1,0 +1,28 @@
+<header class="navbar" [class.scrolled]="isScrolled()">
+  <div class="container navbar__inner">
+    <a href="#home" class="navbar__brand" (click)="closeMenu()">
+      <img src="assets/logo.png" alt="Arcbyte Technologies logo" />
+    </a>
+
+    <nav class="navbar__links" [class.open]="isMenuOpen()">
+      @for (link of links; track link.fragment) {
+        <a [href]="'#' + link.fragment" (click)="closeMenu()">{{ link.label }}</a>
+      }
+      <a href="#contact" class="navbar__cta btn btn-primary" (click)="closeMenu()"
+        >Get in Touch</a
+      >
+    </nav>
+
+    <button
+      class="navbar__toggle"
+      type="button"
+      [class.open]="isMenuOpen()"
+      (click)="toggleMenu()"
+      aria-label="Toggle navigation menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>

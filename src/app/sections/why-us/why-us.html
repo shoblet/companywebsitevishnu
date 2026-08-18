@@ -1,0 +1,26 @@
+<section id="why-us" class="section why-us">
+  <div class="container">
+    <div class="section-head center light">
+      <span class="eyebrow eyebrow--light">Why Arcbyte</span>
+      <h2>Built for teams that need software done right</h2>
+      <p>
+        We don't just write code &mdash; we build long-term technology partnerships rooted
+        in trust, quality and speed.
+      </p>
+    </div>
+
+    <div class="why-us__grid">
+      @for (reason of reasons; track reason.title) {
+        <article class="reason-card">
+          <div class="reason-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path [attr.d]="reason.icon" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3>{{ reason.title }}</h3>
+          <p>{{ reason.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

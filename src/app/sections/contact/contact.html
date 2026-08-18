@@ -1,0 +1,93 @@
+<section id="contact" class="section contact">
+  <div class="container contact__inner">
+    <div class="contact__info">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Let's build something great together</h2>
+      <p class="contact__lead">
+        Tell us about your project and one of our engineers will get back to you within
+        one business day.
+      </p>
+
+      <ul class="contact__list">
+        @for (item of contactInfo; track item.label) {
+          <li>
+            <span class="contact__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path [attr.d]="item.icon" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <div>
+              <strong>{{ item.label }}</strong>
+              <p>{{ item.value }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="contact__form-wrap">
+      @if (!isSubmitted()) {
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="contact__form">
+          <div class="form-row">
+            <label>
+              <span>Full Name</span>
+              <input
+                type="text"
+                name="name"
+                required
+                [(ngModel)]="model.name"
+                placeholder="Jane Doe"
+              />
+            </label>
+            <label>
+              <span>Email</span>
+              <input
+                type="email"
+                name="email"
+                required
+                email
+                [(ngModel)]="model.email"
+                placeholder="jane&#64;company.com"
+              />
+            </label>
+          </div>
+
+          <label>
+            <span>Company</span>
+            <input
+              type="text"
+              name="company"
+              [(ngModel)]="model.company"
+              placeholder="Company Inc."
+            />
+          </label>
+
+          <label>
+            <span>Project Details</span>
+            <textarea
+              name="message"
+              rows="5"
+              required
+              [(ngModel)]="model.message"
+              placeholder="Tell us about your project..."
+            ></textarea>
+          </label>
+
+          <button type="submit" class="btn btn-primary contact__submit" [disabled]="contactForm.invalid">
+            Send Message
+          </button>
+        </form>
+      } @else {
+        <div class="contact__success">
+          <div class="contact__success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m5 13 4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3>Thank you, {{ model.name }}!</h3>
+          <p>Your message has been received. We'll be in touch shortly.</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

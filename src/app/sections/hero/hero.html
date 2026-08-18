@@ -1,0 +1,56 @@
+<section id="home" class="hero">
+  <div class="hero__glow hero__glow--one"></div>
+  <div class="hero__glow hero__glow--two"></div>
+
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <span class="eyebrow">Software Development Company</span>
+
+      <h1>
+        Engineering <span class="highlight">reliable software</span> that moves your
+        business forward
+      </h1>
+
+      <p class="hero__lead">
+        Arcbyte Technologies partners with startups and enterprises to design, build and
+        scale web, mobile and cloud products &mdash; powered by modern engineering and a
+        product-first mindset.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn-primary">Start Your Project</a>
+        <a href="#services" class="btn btn-outline">Explore Services</a>
+      </div>
+
+      <div class="hero__stats">
+        @for (stat of stats; track stat.label) {
+          <div class="hero__stat">
+            <span class="hero__stat-value">{{ stat.value }}</span>
+            <span class="hero__stat-label">{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero__card hero__card--main">
+        <img src="assets/logo.png" alt="Arcbyte Technologies" />
+      </div>
+      <div class="hero__card hero__card--float hero__card--one">
+        <span class="dot"></span>
+        <div>
+          <strong>Agile Delivery</strong>
+          <p>Sprint-based execution</p>
+        </div>
+      </div>
+      <div class="hero__card hero__card--float hero__card--two">
+        <span class="dot dot--accent"></span>
+        <div>
+          <strong>Cloud Native</strong>
+          <p>Built to scale on AWS/Azure</p>
+        </div>
+      </div>
+      <div class="hero__orbit"></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,144 @@
+:host {
+  display: block;
+}
+
+.about {
+  background: var(--color-bg-soft);
+}
+
+.about__inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about__visual {
+  position: relative;
+}
+
+.about__frame {
+  border-radius: var(--radius-lg);
+  background: var(--gradient-brand);
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.about__frame img {
+  width: 100%;
+  max-width: 260px;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+.about__badge {
+  position: absolute;
+  bottom: -24px;
+  right: -20px;
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 18px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+}
+
+.about__badge strong {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--color-primary);
+}
+
+.about__badge span {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  max-width: 110px;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.about__content h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+}
+
+.about__lead {
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  font-size: 1.02rem;
+}
+
+.about__points {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.about__points li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.about__points strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--color-ink);
+  margin-bottom: 2px;
+}
+
+.about__points p {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.about__check {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__check svg {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 980px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about__content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .about__points li {
+    text-align: left;
+  }
+
+  .about__visual {
+    max-width: 380px;
+    margin-inline: auto;
+  }
+}

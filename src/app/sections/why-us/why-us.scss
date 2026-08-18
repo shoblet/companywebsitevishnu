@@ -1,0 +1,102 @@
+:host {
+  display: block;
+}
+
+.why-us {
+  background: var(--color-bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-us::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.15), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(27, 77, 255, 0.25), transparent 50%);
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.section-head.light h2,
+.section-head.light p {
+  color: #fff;
+}
+
+.section-head.light p {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.eyebrow--light {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-accent);
+}
+
+.why-us__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.reason-card {
+  padding: 30px 26px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.reason-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.reason-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.reason-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.reason-card h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.reason-card p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 980px) {
+  .why-us__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .why-us__grid {
+    grid-template-columns: 1fr;
+  }
+}

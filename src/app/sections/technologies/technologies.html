@@ -1,0 +1,22 @@
+<section id="technologies" class="section technologies">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Our Toolkit</span>
+      <h2>Technologies we use to build great products</h2>
+      <p>A modern, battle-tested stack chosen to fit the needs of your project &mdash; not the other way around.</p>
+    </div>
+
+    <div class="technologies__grid">
+      @for (group of groups; track group.category) {
+        <div class="tech-group">
+          <h3>{{ group.category }}</h3>
+          <div class="tech-group__items">
+            @for (item of group.items; track item) {
+              <span class="tech-chip">{{ item }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
