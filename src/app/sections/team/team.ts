@@ -5,6 +5,7 @@ interface TeamMember {
   role: string;
   bio: string;
   initials: string;
+  photo?: string;
 }
 
 @Component({
@@ -15,28 +16,11 @@ interface TeamMember {
 export class Team {
   protected readonly members: TeamMember[] = [
     {
-      name: 'Amina Rahman',
+      name: 'Vishnu H',
       role: 'Founder & CEO',
-      bio: 'Sets the vision and partners with clients to turn product ideas into lasting software.',
-      initials: 'AR',
-    },
-    {
-      name: 'Daniel Okonkwo',
-      role: 'Chief Technology Officer',
-      bio: 'Leads architecture, engineering standards and the technical direction of every engagement.',
-      initials: 'DO',
-    },
-    {
-      name: 'Sofia Alvarez',
-      role: 'Head of Product Design',
-      bio: 'Shapes product experience so our software is as clear to use as it is solid to build.',
-      initials: 'SA',
-    },
-    {
-      name: 'James Patel',
-      role: 'Engineering Manager',
-      bio: 'Keeps delivery moving with senior talent, tight feedback loops and honest communication.',
-      initials: 'JP',
+      bio: 'Leading Arcbyte Technologies with a focus on innovation, strategic growth, and delivering technology solutions that create meaningful business value.',
+      initials: 'VH',
+      photo: 'assets/team-vishnu-h.png',
     },
   ];
 }
