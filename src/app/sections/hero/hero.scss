@@ -176,27 +176,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 500px;
+  min-height: 480px;
+  perspective: 1400px;
 }
 
 .hero-orb {
   --orb-period: 18s;
   --orbit-r: 168px;
-  position: relative;
   width: 100%;
-  max-width: 560px;
+  max-width: 580px;
 }
 
-.hero-orb__stage {
+.hero-orb__frame {
   position: relative;
-  width: 100%;
   height: 500px;
+  padding: 24px 8px 28px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.38));
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 24px 50px rgba(27, 77, 255, 0.12),
+    0 0 0 1px rgba(56, 189, 248, 0.08);
+  transform: rotateY(-8deg) rotateX(5deg);
+  transform-style: preserve-3d;
 }
 
 .hero-orb__slot {
   position: absolute;
   left: 50%;
-  top: 46%;
+  top: 44%;
   width: 0;
   height: 0;
   transform: rotate(var(--angle));
@@ -226,11 +234,12 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  padding: 10px 12px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(228, 233, 247, 0.95);
-  box-shadow: 0 8px 22px rgba(10, 26, 77, 0.08);
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 24px rgba(10, 26, 77, 0.1);
+  backdrop-filter: blur(14px);
   transform: translate(-50%, -50%) translateY(calc(var(--orbit-r) * -1)) rotate(calc(var(--angle) * -1));
   animation: orb-sync-fix var(--orb-period) linear infinite;
 }
@@ -258,7 +267,7 @@
   display: grid;
   place-items: center;
   color: #fff;
-  background: var(--gradient-brand);
+  background: linear-gradient(180deg, #3b82f6, #1b4dff);
 }
 
 .hero-orb__icon svg {
@@ -269,7 +278,7 @@
 .hero-orb__core {
   position: absolute;
   left: 50%;
-  top: 46%;
+  top: 44%;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
@@ -281,26 +290,53 @@
 .hero-orb__core::before {
   content: '';
   position: absolute;
-  inset: 8% -12% 18%;
+  inset: 10% -18% 18%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.55), rgba(124, 58, 237, 0.16) 58%, transparent 72%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.55), rgba(124, 58, 237, 0.14) 55%, transparent 72%);
   filter: blur(16px);
   animation: visual-glow 6s ease-in-out infinite;
   pointer-events: none;
 }
 
+.hero-orb__orbit {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  border: 1.5px dotted rgba(125, 211, 252, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: orbit-spin var(--orb-period) linear infinite;
+}
+
+.hero-orb__orbit--a {
+  width: 210px;
+  height: 78px;
+  margin: -39px 0 0 -105px;
+  transform: rotate(-18deg);
+}
+
+.hero-orb__orbit--b {
+  width: 186px;
+  height: 64px;
+  margin: -32px 0 0 -93px;
+  transform: rotate(16deg);
+  animation-duration: 22s;
+  animation-direction: reverse;
+}
+
 .hero-orb__planet {
   position: relative;
   z-index: 1;
-  width: 200px;
-  height: 200px;
+  width: 168px;
+  height: 168px;
   border-radius: 50%;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 50%, #1d4ed8 0%, #0a1a4d 78%);
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.42), transparent 34%),
+    radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.55) 0%, rgba(29, 78, 216, 0.42) 48%, rgba(10, 26, 77, 0.55) 100%);
   box-shadow:
-    inset -22px -16px 28px rgba(6, 13, 43, 0.55),
-    inset 12px 10px 18px rgba(186, 230, 253, 0.22),
-    0 0 32px rgba(56, 189, 248, 0.55);
+    inset -18px -14px 24px rgba(6, 13, 43, 0.28),
+    0 0 36px rgba(56, 189, 248, 0.55);
 }
 
 .hero-orb__planet-spin {
@@ -325,8 +361,8 @@
     radial-gradient(ellipse 110px 70px at 138% 36%, rgba(125, 211, 252, 0.92) 0 40%, transparent 42%),
     radial-gradient(ellipse 50px 40px at 158% 58%, rgba(165, 243, 252, 0.9) 0 40%, transparent 42%),
     radial-gradient(ellipse 80px 55px at 178% 40%, rgba(186, 230, 253, 0.88) 0 40%, transparent 42%),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 22px),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 20px);
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 20px);
   animation: globe-spin-rtl var(--orb-period) linear infinite;
 }
 
@@ -352,21 +388,48 @@
 .hero-orb__pedestal {
   position: relative;
   z-index: 1;
-  width: 92px;
-  height: 40px;
-  margin-top: -6px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 30%, rgba(56, 189, 248, 0.85), transparent 42%),
-    linear-gradient(180deg, #1b4dff 0%, #0a1a4d 100%);
-  box-shadow: 0 10px 24px rgba(27, 77, 255, 0.35);
+  width: 118px;
+  height: 54px;
+  margin-top: -4px;
   display: grid;
   place-items: center;
 }
 
-.hero-orb__pedestal img {
-  width: 22px;
-  height: 22px;
+.hero-orb__disc {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 118px;
+  height: 18px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at 50% 40%, #38bdf8, #0a1a4d 70%);
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.55);
+}
+
+.hero-orb__disc--mid {
+  width: 92px;
+  height: 14px;
+  bottom: 10px;
+  background: radial-gradient(circle at 50% 40%, #7dd3fc, #1b4dff 72%);
+}
+
+.hero-orb__mark {
+  position: relative;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle, #38bdf8, #1b4dff 70%);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.8);
+  margin-bottom: 10px;
+}
+
+.hero-orb__mark img {
+  width: 18px;
+  height: 18px;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
@@ -395,6 +458,15 @@
   }
   to {
     transform: translate(-50%, -50%) translateY(calc(var(--orbit-r) * -1)) rotate(calc(var(--angle) * -1 + 360deg));
+  }
+}
+
+@keyframes orbit-spin {
+  from {
+    border-color: rgba(125, 211, 252, 0.25);
+  }
+  to {
+    border-color: rgba(167, 139, 250, 0.55);
   }
 }
 
@@ -432,8 +504,9 @@
     --orbit-r: 148px;
   }
 
-  .hero-orb__stage {
+  .hero-orb__frame {
     height: 460px;
+    transform: none;
   }
 
   .hero-orb__card {
@@ -463,6 +536,7 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-orb__core::before,
   .hero-orb__planet-map,
+  .hero-orb__orbit,
   .hero-orb__slot,
   .hero-orb__card {
     animation: none;

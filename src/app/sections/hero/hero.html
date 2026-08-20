@@ -49,94 +49,100 @@
 
     <div class="hero__visual">
       <div class="hero-orb" aria-label="Arcbyte services around a rotating globe">
-        <div class="hero-orb__stage">
+        <div class="hero-orb__frame">
           @for (card of orbCards; track card.title) {
             <div class="hero-orb__slot" [style.--angle.deg]="card.angle">
               <span class="hero-orb__spoke" aria-hidden="true"></span>
               <article class="hero-orb__card">
-            <span class="hero-orb__icon" aria-hidden="true">
-              @switch (card.icon) {
-                @case ('helpdesk') {
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M5 7.5A3.5 3.5 0 0 1 8.5 4h7A3.5 3.5 0 0 1 19 7.5v5A3.5 3.5 0 0 1 15.5 16H10l-4 3.2V16A3.5 3.5 0 0 1 5 12.5v-5Z"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                    />
-                    <circle cx="9" cy="10" r="1" fill="currentColor" />
-                    <circle cx="12" cy="10" r="1" fill="currentColor" />
-                    <circle cx="15" cy="10" r="1" fill="currentColor" />
-                  </svg>
-                }
-                @case ('web') {
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="m8 8-4 4 4 4M16 8l4 4-4 4M13 6l-2 12"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                }
-                @case ('dedicated') {
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <rect x="4" y="5" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.8" />
-                    <path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                    <circle cx="12" cy="10.5" r="2" stroke="currentColor" stroke-width="1.6" />
-                  </svg>
-                }
-                @case ('noc') {
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="7" r="2" stroke="currentColor" stroke-width="1.7" />
-                    <circle cx="6.5" cy="16" r="2" stroke="currentColor" stroke-width="1.7" />
-                    <circle cx="17.5" cy="16" r="2" stroke="currentColor" stroke-width="1.7" />
-                    <path d="M12 9v5M10.5 15 8 16M13.5 15l2.5 1" stroke="currentColor" stroke-width="1.7" />
-                  </svg>
-                }
-                @case ('soc') {
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M12 3.5 5 6.5v5.2c0 4.1 2.8 7.7 7 8.8 4.2-1.1 7-4.7 7-8.8V6.5L12 3.5Z"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linejoin="round"
-                    />
-                    <path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                  </svg>
-                }
-                @case ('pro') {
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.8" />
-                    <path
-                      d="M5.5 19c.8-3.2 3.3-5 6.5-5s5.7 1.8 6.5 5"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                }
-              }
-            </span>
-            <div>
-              <h3>{{ card.title }}</h3>
-              <p>{{ card.description }}</p>
-            </div>
+                <span class="hero-orb__icon" aria-hidden="true">
+                  @switch (card.icon) {
+                    @case ('helpdesk') {
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M5 7.5A3.5 3.5 0 0 1 8.5 4h7A3.5 3.5 0 0 1 19 7.5v5A3.5 3.5 0 0 1 15.5 16H10l-4 3.2V16A3.5 3.5 0 0 1 5 12.5v-5Z"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                        />
+                        <circle cx="9" cy="10" r="1" fill="currentColor" />
+                        <circle cx="12" cy="10" r="1" fill="currentColor" />
+                        <circle cx="15" cy="10" r="1" fill="currentColor" />
+                      </svg>
+                    }
+                    @case ('web') {
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="m8 8-4 4 4 4M16 8l4 4-4 4M13 6l-2 12"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    }
+                    @case ('dedicated') {
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="4" y="5" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.8" />
+                        <path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        <circle cx="12" cy="10.5" r="2" stroke="currentColor" stroke-width="1.6" />
+                      </svg>
+                    }
+                    @case ('noc') {
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="7" r="2" stroke="currentColor" stroke-width="1.7" />
+                        <circle cx="6.5" cy="16" r="2" stroke="currentColor" stroke-width="1.7" />
+                        <circle cx="17.5" cy="16" r="2" stroke="currentColor" stroke-width="1.7" />
+                        <path d="M12 9v5M10.5 15 8 16M13.5 15l2.5 1" stroke="currentColor" stroke-width="1.7" />
+                      </svg>
+                    }
+                    @case ('soc') {
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M12 3.5 5 6.5v5.2c0 4.1 2.8 7.7 7 8.8 4.2-1.1 7-4.7 7-8.8V6.5L12 3.5Z"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linejoin="round"
+                        />
+                        <path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                      </svg>
+                    }
+                    @case ('pro') {
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.8" />
+                        <path
+                          d="M5.5 19c.8-3.2 3.3-5 6.5-5s5.7 1.8 6.5 5"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    }
+                  }
+                </span>
+                <div>
+                  <h3>{{ card.title }}</h3>
+                  <p>{{ card.description }}</p>
+                </div>
               </article>
             </div>
           }
 
           <div class="hero-orb__core">
-          <div class="hero-orb__planet" aria-hidden="true">
-            <div class="hero-orb__planet-spin">
-              <div class="hero-orb__planet-map"></div>
+            <span class="hero-orb__orbit hero-orb__orbit--a" aria-hidden="true"></span>
+            <span class="hero-orb__orbit hero-orb__orbit--b" aria-hidden="true"></span>
+            <div class="hero-orb__planet" aria-hidden="true">
+              <div class="hero-orb__planet-spin">
+                <div class="hero-orb__planet-map"></div>
+              </div>
+              <span class="hero-orb__planet-shine"></span>
+              <canvas #globe class="hero-orb__globe"></canvas>
             </div>
-            <span class="hero-orb__planet-shine"></span>
-            <canvas #globe class="hero-orb__globe"></canvas>
-          </div>
-          <div class="hero-orb__pedestal">
-            <img src="assets/logo.png" alt="" />
-          </div>
+            <div class="hero-orb__pedestal">
+              <span class="hero-orb__disc"></span>
+              <span class="hero-orb__disc hero-orb__disc--mid"></span>
+              <span class="hero-orb__mark">
+                <img src="assets/logo.png" alt="" />
+              </span>
+            </div>
           </div>
         </div>
       </div>
