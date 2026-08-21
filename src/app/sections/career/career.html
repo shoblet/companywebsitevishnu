@@ -6,9 +6,9 @@
     <div class="career__overlay"></div>
 
     <div class="container career__content">
-      <div class="section-head center">
-        <span class="eyebrow">Join the Team</span>
-        <h2>Explore our current openings</h2>
+      <div class="career__head">
+        <span class="kicker">Join Our Team</span>
+        <h2>Explore our <span>current openings</span></h2>
         <p>
           We're looking for people who care about craft, communication and shipping
           software that lasts. If that sounds like you, we'd like to hear from you.
@@ -18,13 +18,35 @@
       <div class="career__grid">
         @for (job of openings; track job.title) {
           <article class="job-card">
+            <span class="job-card__avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.7" />
+                <path
+                  d="M5.5 19c.8-3.2 3.3-5 6.5-5s5.7 1.8 6.5 5"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
             <div class="job-card__meta">
               <span>{{ job.type }}</span>
               <span>{{ job.location }}</span>
             </div>
             <h3>{{ job.title }}</h3>
             <p>{{ job.description }}</p>
-            <a href="#contact" class="btn btn-outline">Apply now</a>
+            <a href="#contact" class="job-card__apply">
+              Apply now
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
           </article>
         }
       </div>

@@ -11,6 +11,7 @@ import {
 interface HeroStat {
   value: string;
   label: string;
+  icon: 'people' | 'shield' | 'rocket';
 }
 
 interface Particle {
@@ -57,10 +58,9 @@ export class Hero {
   private readonly cta = viewChild<HTMLAnchorElement>('cta');
 
   protected readonly stats: HeroStat[] = [
-    { value: '50+', label: 'Projects Delivered' },
-    { value: '30+', label: 'Happy Clients' },
-    { value: '8+', label: 'Years of Expertise' },
-    { value: '99%', label: 'On-time Delivery' },
+    { value: '3+', label: 'Years Experience', icon: 'people' },
+    { value: '25+', label: 'Projects Delivered', icon: 'shield' },
+    { value: '100%', label: 'Client Satisfaction', icon: 'rocket' },
   ];
 
   protected readonly orbCards: OrbCard[] = [
@@ -182,7 +182,7 @@ export class Hero {
       if (this.reduceMotion) {
         return;
       }
-      this.tick();
+      this.tick(performance.now());
     };
     boot();
 

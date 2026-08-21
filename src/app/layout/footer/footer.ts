@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Contact } from '../../sections/contact/contact';
 
 interface FooterColumn {
   title: string;
@@ -7,6 +8,7 @@ interface FooterColumn {
 
 @Component({
   selector: 'app-footer',
+  imports: [Contact],
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
 })
@@ -21,7 +23,6 @@ export class Footer {
         { label: 'Meet the Team', href: '#team' },
         { label: 'Career', href: '#career' },
         { label: 'Why Us', href: '#why-us' },
-        { label: 'Contact', href: '#contact' },
       ],
     },
     {

@@ -15,22 +15,10 @@ interface JobOpening {
 export class Career {
   protected readonly openings: JobOpening[] = [
     {
-      title: 'Senior Frontend Engineer',
+      title: 'Senior Angular Developer',
       type: 'Full-time',
       location: 'Remote / Hybrid',
       description: 'Build polished Angular and React products with a small, senior team.',
-    },
-    {
-      title: 'Backend Engineer',
-      type: 'Full-time',
-      location: 'Remote / Hybrid',
-      description: 'Design APIs, data models and cloud services that stay reliable at scale.',
-    },
-    {
-      title: 'Mobile Developer',
-      type: 'Full-time',
-      location: 'Remote',
-      description: 'Ship Flutter and native apps with a focus on performance and UX.',
     },
   ];
 }
