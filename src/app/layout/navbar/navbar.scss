@@ -91,26 +91,37 @@
   position: relative;
 }
 
+.navbar__item--has-children::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 16px;
+}
+
 .navbar__dropdown {
   position: absolute;
-  top: calc(100% + 14px);
-  left: 50%;
-  min-width: max-content;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 4px;
-  padding: 8px 10px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+  margin-top: 10px;
+  padding: 10px;
   border-radius: var(--radius-md);
   background: #fff;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--color-border);
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-50%) translateY(8px);
+  transform: translateY(6px);
   transition:
     opacity 0.2s ease,
     transform 0.2s ease;
+  z-index: 20;
 }
 
 .navbar__dropdown a {
@@ -130,16 +141,21 @@
 }
 
 .navbar__item--has-children:hover .navbar__dropdown,
-.navbar__item--has-children:focus-within .navbar__dropdown,
-.navbar__item--has-children.open .navbar__dropdown {
+.navbar__item--has-children:focus-within .navbar__dropdown {
   opacity: 1;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
 }
 
 .navbar__cta {
   padding: 10px 22px;
   font-size: 0.9rem;
+  background: #1b4dff;
+}
+
+.navbar__cta svg {
+  width: 16px;
+  height: 16px;
 }
 
 .navbar__toggle {
@@ -232,21 +248,15 @@
     min-width: 0;
     transform: none;
     opacity: 1;
-    pointer-events: none;
-    display: none;
-    flex-direction: row;
-    flex-wrap: wrap;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
     box-shadow: none;
     border: 0;
     background: var(--color-bg-soft);
     padding: 8px;
+    margin-top: 4px;
     margin-bottom: 8px;
-  }
-
-  .navbar__item--has-children.open .navbar__dropdown {
-    display: flex;
-    pointer-events: auto;
-    transform: none;
   }
 
   .navbar__cta {

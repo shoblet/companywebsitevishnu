@@ -22,18 +22,17 @@ export class Navbar {
   protected readonly openDropdown = signal<string | null>(null);
 
   protected readonly links: NavItem[] = [
-    { label: 'Home', fragment: 'home' },
     { label: 'Services', fragment: 'services' },
+    { label: 'Solutions', fragment: 'why-us' },
     {
-      label: 'Who We Are',
+      label: 'About Us',
       children: [
         { label: 'About Us', fragment: 'about' },
         { label: 'Meet the Team', fragment: 'team' },
         { label: 'Career', fragment: 'career' },
       ],
     },
-    { label: 'Why Us', fragment: 'why-us' },
-    { label: 'Technologies', fragment: 'technologies' },
+    { label: 'Work', fragment: 'technologies' },
     { label: 'Contact', fragment: 'contact' },
   ];
 

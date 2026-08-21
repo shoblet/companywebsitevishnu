@@ -12,7 +12,15 @@
     <div class="team__grid">
       @for (member of members; track member.name) {
         <article class="team-card">
-          <div class="team-card__avatar" aria-hidden="true">{{ member.initials }}</div>
+          @if (member.photo) {
+            <img
+              class="team-card__avatar team-card__avatar--photo"
+              [src]="member.photo"
+              [alt]="member.name + ', ' + member.role + ' of Arcbyte Technologies'"
+            />
+          } @else {
+            <div class="team-card__avatar" aria-hidden="true">{{ member.initials }}</div>
+          }
           <h3>{{ member.name }}</h3>
           <span class="team-card__role">{{ member.role }}</span>
           <p>{{ member.bio }}</p>

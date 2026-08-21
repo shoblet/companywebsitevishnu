@@ -1,8 +1,8 @@
-<section id="contact" class="section contact">
+<section id="contact" class="contact">
   <div class="container contact__inner">
     <div class="contact__info">
-      <span class="eyebrow">Get In Touch</span>
-      <h2>Let's build something great together</h2>
+      <span class="kicker kicker--left">Get In Touch</span>
+      <h2>Let's build something <span>great together</span></h2>
       <p class="contact__lead">
         Tell us about your project and one of our engineers will get back to you within
         one business day.
@@ -31,50 +31,75 @@
           <div class="form-row">
             <label>
               <span>Full Name</span>
-              <input
-                type="text"
-                name="name"
-                required
-                [(ngModel)]="model.name"
-                placeholder="Jane Doe"
-              />
+              <span class="field">
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  [(ngModel)]="model.name"
+                  placeholder="Jane Doe"
+                />
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.7" />
+                  <path d="M5.5 19c.8-3.2 3.3-5 6.5-5s5.7 1.8 6.5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                </svg>
+              </span>
             </label>
             <label>
               <span>Email</span>
-              <input
-                type="email"
-                name="email"
-                required
-                email
-                [(ngModel)]="model.email"
-                placeholder="jane&#64;company.com"
-              />
+              <span class="field">
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  email
+                  [(ngModel)]="model.email"
+                  placeholder="jane&#64;company.com"
+                />
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 6h16v12H4V6Zm0 0 8 7 8-7" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                </svg>
+              </span>
             </label>
           </div>
 
           <label>
             <span>Company</span>
-            <input
-              type="text"
-              name="company"
-              [(ngModel)]="model.company"
-              placeholder="Company Inc."
-            />
+            <span class="field">
+              <input
+                type="text"
+                name="company"
+                [(ngModel)]="model.company"
+                placeholder="Company Inc."
+              />
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8 20V8h13v12H8Zm0 0H3V11h5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                <path d="M12 11h3M12 15h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              </svg>
+            </span>
           </label>
 
           <label>
             <span>Project Details</span>
-            <textarea
-              name="message"
-              rows="5"
-              required
-              [(ngModel)]="model.message"
-              placeholder="Tell us about your project..."
-            ></textarea>
+            <span class="field">
+              <textarea
+                name="message"
+                rows="5"
+                required
+                [(ngModel)]="model.message"
+                placeholder="Tell us about your project..."
+              ></textarea>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 20h4L19 9l-4-4L4 16v4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+              </svg>
+            </span>
           </label>
 
-          <button type="submit" class="btn btn-primary contact__submit" [disabled]="contactForm.invalid">
+          <button type="submit" class="contact__submit" [disabled]="contactForm.invalid">
             Send Message
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m22 2-9 9M22 2l-7 20-4-9-9-4 20-7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+            </svg>
           </button>
         </form>
       } @else {

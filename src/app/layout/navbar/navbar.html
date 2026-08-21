@@ -15,9 +15,8 @@
             <button
               type="button"
               class="navbar__trigger"
-              [attr.aria-expanded]="isDropdownOpen(link.label)"
               aria-haspopup="true"
-              (click)="toggleDropdown(link.label, $event)"
+              aria-expanded="true"
             >
               {{ link.label }}
               <svg class="navbar__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -42,9 +41,18 @@
           }}</a>
         }
       }
-      <a href="#contact" class="navbar__cta btn btn-primary" (click)="closeMenu()"
-        >Get in Touch</a
-      >
+      <a href="#contact" class="navbar__cta btn btn-primary" (click)="closeMenu()">
+        Let's Connect
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M5 12h14M13 6l6 6-6 6"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
     </nav>
 
     <button

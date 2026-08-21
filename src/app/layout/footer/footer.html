@@ -1,40 +1,44 @@
 <footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__brand">
-      <img src="assets/logo.png" alt="Arcbyte Technologies logo" />
-      <p>
-        Arcbyte Technologies designs and builds scalable software products for startups
-        and enterprises worldwide.
-      </p>
-    </div>
+  <app-contact />
 
-    @for (col of columns; track col.title) {
-      <div class="footer__col">
-        <h4>{{ col.title }}</h4>
-        <ul>
-          @for (link of col.links; track link.label) {
-            <li><a [href]="link.href">{{ link.label }}</a></li>
-          }
-        </ul>
+  <div class="container">
+    <div class="footer__shell">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img src="assets/logo.png" alt="Arcbyte Technologies logo" />
+          <p>
+            Arcbyte Technologies designs and builds scalable software products for startups
+            and enterprises worldwide.
+          </p>
+        </div>
+
+        @for (col of columns; track col.title) {
+          <div class="footer__col">
+            <h4>{{ col.title }}</h4>
+            <ul>
+              @for (link of col.links; track link.label) {
+                <li><a [href]="link.href">{{ link.label }}</a></li>
+              }
+            </ul>
+          </div>
+        }
+
+        <div class="footer__col">
+          <h4>Newsletter</h4>
+          <p class="footer__note">Get product &amp; engineering insights in your inbox.</p>
+          <form class="footer__subscribe" onsubmit="return false">
+            <input type="email" placeholder="you@company.com" />
+            <button type="submit" aria-label="Subscribe">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </form>
+        </div>
       </div>
-    }
-
-    <div class="footer__col">
-      <h4>Newsletter</h4>
-      <p class="footer__note">Get product &amp; engineering insights in your inbox.</p>
-      <form class="footer__subscribe" onsubmit="return false">
-        <input type="email" placeholder="you@company.com" />
-        <button type="submit" aria-label="Subscribe">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-      </form>
     </div>
-  </div>
 
-  <div class="footer__bottom">
-    <div class="container footer__bottom-inner">
+    <div class="footer__bottom-inner">
       <span>&copy; {{ year }} Arcbyte Technologies. All rights reserved.</span>
       <div class="footer__socials">
         <a href="#" aria-label="LinkedIn">in</a>
